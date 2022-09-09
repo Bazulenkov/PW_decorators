@@ -1,4 +1,4 @@
-def decorator_with_args(input_arg):
+def decorator_factory(input_arg):
     def decorator(func):
         def wrapper(*args, **kwargs):
             print(f"arguments of decorator: {input_arg}")
@@ -10,14 +10,17 @@ def decorator_with_args(input_arg):
     return decorator
 
 
-@decorator_with_args("***********************")
+@decorator_factory("***********************")
 def my_simple_func(x):
     return x
 
 
 print(my_simple_func("Hello"))
 
-# arguments of decorator ***********************
-# ***********************
-# Hello
-# ***********************
+
+# @decorator_factory  # Without parentheses
+# def test():
+#     pass
+#
+#
+# test()

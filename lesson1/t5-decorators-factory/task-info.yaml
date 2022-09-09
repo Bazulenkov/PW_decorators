@@ -6,3 +6,5 @@ files:
   visible: false
 - name: t5-2.py
   visible: true
+- name: t5-3.py
+  visible: true
