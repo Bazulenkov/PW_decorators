@@ -3,4 +3,4 @@ content:
 - t2 - nonlocal, global
 - t3 - closure
 - t4-decorators
-- task5
+- t5-decorators-factory
