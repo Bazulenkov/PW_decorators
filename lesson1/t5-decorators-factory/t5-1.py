@@ -15,6 +15,8 @@ def my_simple_func(x):
     return x
 
 
+# my_simple_func = decorator_factory("***********************")(my_simple_func)
+
 print(my_simple_func("Hello"))
 
 

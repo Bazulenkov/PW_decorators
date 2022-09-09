@@ -6,12 +6,11 @@ def decorator(func):
     return wrapper
 
 
-@decorator
+# @decorator
 def my_first_func():
     print("First func")
 
 
-my_first_func()
+my_first_func = decorator(my_first_func)
 
-# I'm decorator
-# First func
+my_first_func()
