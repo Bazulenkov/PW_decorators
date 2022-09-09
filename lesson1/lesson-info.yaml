@@ -1,3 +1,6 @@
 content:
-- task1
-- task2
+- t1 - LEGB
+- t2 - nonlocal, global
+- t3 - closure
+- t4-decorators
+- task5
