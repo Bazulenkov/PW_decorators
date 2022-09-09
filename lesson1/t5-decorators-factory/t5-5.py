@@ -4,15 +4,15 @@ def decorator_factory(*decorator_args, **decorator_kwargs):
             self.func = func
 
         def __call__(self, *args, **kwargs):
-            print("Inside the decorator with arguments {}".format(decorator_args))
+            print('Inside the decorator with arguments {}'.format(decorator_args))
             return self.func(*args, **kwargs)
 
     return Decorator
 
 
-@decorator_factory("*****************", "-----------")
-def my_simple_func(x):
-    return x
+@decorator_factory(10)
+def test():
+    pass
 
 
-print(my_simple_func("Hello"))
+test()

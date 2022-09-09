@@ -1,18 +1,29 @@
-def decorator_factory(*decorator_args, **decorator_kwargs):
-    class Decorator(object):
-        def __init__(self, func):
-            self.func = func
-
-        def __call__(self, *args, **kwargs):
-            print('Inside the decorator with arguments {}'.format(decorator_args))
-            return self.func(*args, **kwargs)
-
-    return Decorator
+from functools import wraps
 
 
-@decorator_factory(10)
-def test():
-    pass
+def decorator_factory(input_arg):
+    def decorator(func):
+        @wraps(func)  # вся магия в этой строке
+        def wrapper(*args, **kwargs):
+            print(f"arguments of decorator {input_arg}")
+            result = func(*args, **kwargs)
+            return f"{input_arg}\n{result}\n{input_arg}"
+
+        return wrapper
+
+    return decorator
 
 
-test()
+@decorator_factory("***********************")
+def my_simple_func(x):
+    return x
+
+
+print(my_simple_func("Hello"))
+print(my_simple_func.__name__)
+
+# arguments of decorator ***********************
+# ***********************
+# Hello
+# ***********************
+# my_simple_func

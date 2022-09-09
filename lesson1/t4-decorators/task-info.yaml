@@ -8,5 +8,7 @@ files:
   visible: true
 - name: t4-3.py
   visible: true
+- name: t4-4.py
+  visible: true
 - name: t4-5.py
   visible: true

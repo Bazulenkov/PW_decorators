@@ -7,8 +7,8 @@
 2. Средний уровень является собственно самим декоратором
 3. Третий уровень необходим для обработки обращений к исходной декорируемой функции
 [t5-1.py](course://lesson1/t5-decorators-factory/t5-1.py)
-```
-def decorator_with_args(input_arg):
+```python
+def decorator_factory(input_arg):
     def decorator(func):
         def wrapper(*args, **kwargs):
             print(f"arguments of decorator: {input_arg}")
@@ -20,7 +20,7 @@ def decorator_with_args(input_arg):
     return decorator
 
 
-@decorator_with_args("***********************")
+@decorator_factory("***********************")
 def my_simple_func(x):
     return x
 
@@ -59,12 +59,12 @@ print(my_simple_func.__name__)
 вложенной функции в декоратор. Бывают ситуации, когда это недопустимо. Для решения этого вопроса
 призовем стандартную библиотеку Python. Используем из модуля `functools` декоратор `wraps` . И
 декорируем им нашу функцию wrapper следующим образом:
-[t5-2.py](course://lesson1/t5-decorators-factory/t5-2.py)
+[t5-2.py](course://lesson1/t5-decorators-factory/t5-3.py)
 ```
 from functools import wraps
 
 
-def decorator_with_args(input_arg):
+def decorator_factory(input_arg):
     def decorator(func):
         @wraps(func)  # вся магия в этой строке
         def wrapper(*args, **kwargs):
@@ -77,7 +77,7 @@ def decorator_with_args(input_arg):
     return decorator
 
 
-@decorator_with_args("***********************")
+@decorator_factory("***********************")
 def my_simple_func(x):
     return x
 
