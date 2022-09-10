@@ -13,5 +13,8 @@ class C:
         print(x + y)
 
 
+# C.method = Decorator(C.method)
+
 c = C()
 c.method(1, 2)  # нам нужен в явном виде self, а его нет и случается ошибка
+

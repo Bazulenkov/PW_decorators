@@ -10,14 +10,23 @@ def decorator_factory(input_arg):
     return decorator
 
 
-@decorator_factory("***********************")
+# @decorator_factory("***********************")
 def my_simple_func(x):
     return x
 
 
-# my_simple_func = decorator_factory("***********************")(my_simple_func)
+@decorator_factory("-" * 20)
+def my_simple_func2(x):
+    return x
 
+
+my_simple_func = decorator_factory("***********************")(my_simple_func)
 print(my_simple_func("Hello"))
+
+print(my_simple_func2("Hello"))
+
+# my_simple_func = decorator_factory("-"*20)(my_simple_func)
+# print(my_simple_func("Hello"))
 
 
 # @decorator_factory  # Without parentheses

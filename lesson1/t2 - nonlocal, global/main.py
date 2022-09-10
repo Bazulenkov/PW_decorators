@@ -21,7 +21,7 @@ def outer_nonlocal():
     x = 50
 
     def inner():
-        nonlocal x  # нелокальные переменные должны(!) существовать
+        global x  # нелокальные переменные должны(!) существовать
         x = 100
         print(f"inner x is {x}")
 

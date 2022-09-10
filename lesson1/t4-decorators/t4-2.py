@@ -14,14 +14,11 @@ def spam(a, b, c):
     return a + b + c
 
 
+
+print(spam)
 spam = Tracer(spam)
 
 print(spam(1, 2, 3))
 print(spam("a", "b", "c"))
 print(spam)
 
-# Calls 1 to spam
-# 6
-# Calls 2 to spam
-# abc
-# <class '__main__.Tracer'>

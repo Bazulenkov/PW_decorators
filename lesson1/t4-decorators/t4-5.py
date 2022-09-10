@@ -12,7 +12,13 @@ class Decorator:
         return self.func(*args)
 
     def __get__(self, instance, owner):
-        return self if instance is None else MethodType(self, instance)
+        if instance is None:
+            return self
+        else:
+            r = MethodType(self, instance)
+            return r
+
+        # return self if instance is None else MethodType(self, instance)
 
 
 class C:
@@ -20,6 +26,8 @@ class C:
     def method(self, x, y):
         print(x + y)
 
+
+# C.method = Decorator(C.method)
 
 c = C()
 c.method(6, 7)
